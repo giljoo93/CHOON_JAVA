@@ -13,8 +13,8 @@ public class ActivityLogger {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String logEntry = "[" + timestamp + "] " + username + " - " + action;
 
-        // 콘솔에도 출력
-        System.out.println(logEntry);
+        // 콘솔에도 출력 (현재는 비사용)
+        // System.out.println(logEntry);
 
         // 파일에 저장
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_FILE_PATH, true))) {
