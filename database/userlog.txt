@@ -1,0 +1,10 @@
+[2025-11-05 19:40:55] Hyangchoon - Join to main menu
+[2025-11-05 19:40:58] Hyangchoon - Try to sign up
+[2025-11-05 19:41:15] Hyangchoon - Join to main menu
+[2025-11-05 19:41:23] Hyangchoon - Try to log in
+[2025-11-05 19:41:23] Hyangchoon - Join to main menu
+[2025-11-05 19:41:27] Hyangchoon - Exit the program
+[2025-11-05 19:42:08] Hyangchoon - Join to main menu
+[2025-11-05 19:42:14] Hyangchoon - Try to sign up
+[2025-11-05 19:42:28] Hyangchoon - Join to main menu
+[2025-11-05 19:42:40] Hyangchoon - Exit the program

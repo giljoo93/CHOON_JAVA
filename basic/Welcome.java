@@ -18,13 +18,14 @@ public class Welcome {
 
             String choice = scanner.nextLine();
 
-            // 0 Login
+                // 0 Login
             if (choice.equals("0")) {
                 ActivityLogger.log("Hyangchoon", "Try to log in");
 
                 // 1 Sign up
             } else if (choice.equals("1")) {
                 ActivityLogger.log("Hyangchoon", "Try to sign up");
+                SignUp.register(scanner);
 
                 // 2 Exit
             } else if (choice.equals("2")) {
@@ -32,7 +33,7 @@ public class Welcome {
                 System.out.println("Exiting the program. Goodbye!");
                 break;
             }
-            // Exception handling for invalid input
+                // Exception handling for invalid input
             else {
                 System.out.println("Invalid input. Please try again.");
 
