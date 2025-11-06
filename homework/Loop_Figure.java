@@ -43,6 +43,7 @@ public class Loop_Figure {
             {
                 System.out.print("*");
             }
+
             System.out.println("");
         }
 
