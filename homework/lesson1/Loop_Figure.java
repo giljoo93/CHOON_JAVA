@@ -1,4 +1,4 @@
-package homework;
+package homework.lesson1;
 
 public class Loop_Figure {
 
