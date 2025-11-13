@@ -26,13 +26,21 @@ public class sorting {
     public static void main(String[] args) {
         Scanner number = new Scanner(System.in);
 
-        int Menu;
+        int choice;
 
+        initialize init = new initialize(); // 객체생성
+        
+
+
+
+        while (true) {
+        
+        
         menu.printMenu();
   
-        Menu = number.nextInt();
+        choice = number.nextInt();
 
-            switch (Menu) {
+            switch (choice) {
 
                 case 1:
                     sortAsc.SA();
@@ -41,12 +49,12 @@ public class sorting {
                     sortDes.SD();
                     break;
                 case 3:
-                    initialize.IL();
+                    init.IL();
                     break;
                 case 4:
                     System.out.println("4.프로그램 종료");
                     number.close();
-                    break;
+                    System.exit(0);
                 default:
                     System.out.println("(1~4)사이의 메뉴를 선택해주세요.");
                     break;
@@ -56,5 +64,7 @@ public class sorting {
         }
         
     }
+
+}
 // Try ~ catch : 예외처리 :: GPT 설명듣고 JAVA ESSENTIAL ~~
 

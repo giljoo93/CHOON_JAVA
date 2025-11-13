@@ -1,32 +1,51 @@
 package homework.lesson2.utils;
 
 public class initialize {
-    // 초기화 및 배열에 10가지 숫자 받기 
+    // 초기화 및 배열에 10가지 숫자 받기
 
-    public static void IL() {
+    protected int i, n, m;
+    protected boolean t = true;
+    protected static int randomArray[] = new int[10];
 
-        int randomA = (int)(Math.random()*100);
-        int randomB = (int)(Math.random()*100);
-        int randomC = (int)(Math.random()*100);
-        int randomD = (int)(Math.random()*100);
-        int randomE = (int)(Math.random()*100);
-        int randomF = (int)(Math.random()*100);
-        int randomG = (int)(Math.random()*100);
-        int randomH = (int)(Math.random()*100);
-        int randomI = (int)(Math.random()*100);
-        int randomJ = (int)(Math.random()*100);
+    public void IL() {
+        t=true;
 
-        
+        while (t) {
 
+            for (i = 0; i < 10; i++) {
+                randomArray[i] = (int) (Math.random() * 100);
+                System.out.println("make number");
+                // 숫자 생성
+            }
 
+            m = 0; // 겹치는 것이 있는 회수
 
+            for (i = 0; i < 10; i++) {
+                for (n = 1; n <= 9 - i; n++) {
+                    if (randomArray[i] == randomArray[i + n]) {
+                        m++;
+                        System.out.println("test number");
+                    }
 
-        System.out.println();
-        System.out.println();
-        System.out.println("-------------------------------------");
-        System.out.println("     초기화    ");
-        System.out.println("-------------------------------------");
-        System.out.println(randomA+" "+randomB+" "+randomC+" "+randomD+" "+randomE+" "+randomF+" "+randomG+" "+randomH+" "+randomI+" "+randomJ);
+                }
+            }
 
+            if (m == 0) {
+                t = false;
+                System.out.println("finish numbering");
+            }
+
+        }
+  
+        for (i = 0; i < 10; i++) {
+            System.out.print(randomArray[i] + " ");
+        }
+    
+    }
+
+    public void showNumber() {
+        for (i = 0; i < 10; i++) {
+            System.out.print(randomArray[i] + " ");
+        }
     }
 }
