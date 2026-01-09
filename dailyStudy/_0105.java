@@ -1,8 +1,8 @@
-package _0103;
+package dailyStudy;
 
 import java.util.Scanner;
 
-public class ExceotuinStudy {
+public class _0105 {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);

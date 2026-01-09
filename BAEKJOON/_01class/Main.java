@@ -1,23 +1,23 @@
 package BAEKJOON._01class;
 
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
+
 
 public class Main {
-    public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
-        Scanner input = new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		int T = Integer.parseInt(br.readLine());
+		int A, B;
+		for (int i = 0; i < T; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			A = Integer.parseInt(st.nextToken());
+			B = Integer.parseInt(st.nextToken());
+			bw.write((A+B) + "\n");
 
-        int n = input.nextInt();
-        int m ;
-
-        for (m=0; m < n/4; m++){
-            System.out.print("long ");
-        }
-        System.out.print("int");
-        
-
-        input.close();
-
-    }
-
+		}
+		bw.flush();
+	}
 }

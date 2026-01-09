@@ -14,8 +14,9 @@ public class BaseballOriginal {
 
 			System.out.println("야구게임을 시작합니다.");
 			System.out.println("1.게임시작 0.게임종료");
+			
 			Running = scanner.nextInt();
-
+			scanner.nextLine(); // clear buffer
 			if (Running == 0) {
 				System.out.println("프로그램을 종료합니다.");
 				return;
@@ -57,28 +58,39 @@ public class BaseballOriginal {
 		int userSetiN = 0;
 		char c;
 		boolean test = false;
-
 		System.out.println("세자리 숫자를 입력하세요.");
+		boolean totalTest = false;
 
-		while (!test) {
-			userSetN = scanner.nextLine();
-			for (int i = 0; i < userSetN.length(); i++) {
-				c = userSetN.charAt(i);
-				if (c < '0' && c > '9') {
-					test = false;
-					break;
-				}else {
-					test = true;
+		while (!totalTest) {
+
+			while (!test) {
+				
+				userSetN = scanner.nextLine();
+
+				for (int i = 0; i < userSetN.length(); i++) {
+					c = userSetN.charAt(i);
+					if (c < '0' || c > '9') {
+						test = false;
+						System.out.println("잘못된 값이 입력되었습니다. 정수를 입력하여주세요.");
+						break;
+					} else {
+						test = true;
+					}
 				}
 			}
+			
 			userSetiN = Integer.parseInt(userSetN);
+
 			boolean test2 = false;
 			while (!test2) {
 				if (userSetiN > 999 || userSetiN < 012) {
 					System.out.println("잘못된입력입니다. 세자리 정수를 입력하세요");
 					test = false;
+					totalTest = false;
+					break;
 				} else {
 					test2 = true;
+					totalTest = true;
 				}
 			}
 		}
@@ -110,9 +122,6 @@ public class BaseballOriginal {
 		if (strike == 3) {
 			System.out.println("승리하였습니다.");
 			answer = true;
-
-		} else {
-			System.out.println("오답입니다.");
 
 		}
 
