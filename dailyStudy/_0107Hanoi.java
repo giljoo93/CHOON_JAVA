@@ -2,16 +2,18 @@ package dailyStudy;
 
 import java.util.Scanner;
 
-public class _0107 {
+public class _0107Hanoi {
 	static final int gameLevel = 6;
 	static int[] tower_A = new int[gameLevel], tower_B = new int[gameLevel], tower_C = new int[gameLevel];
 	static int[] userChoice_A = new int[gameLevel], userChoice_B = new int[gameLevel];
 	static boolean running = true;
-	static int count =0;
+	static int tryCnt =0;
 	public static void main(String[] args) {
 		Scanner userInput = new Scanner(System.in);
 		//메인 메서드
-		int move_a, move_b; // 유저가 이동을 명령 할 값을 담을 변수.
+		int move_A, move_B; // 유저가 이동을 명령 할 값을 담을 변수.
+		
+		//실무에서 축약을 하는 유형 중 하나	tmp == temp   ::  cnt == count
 		
 		tower_A[0] = 5;
 		tower_A[1] = 4;
@@ -25,23 +27,20 @@ public class _0107 {
 			tower_C[i] = 0;
 		}
 		
-		
-		
-		
 		while (running) {
 		
 		screen();
 		System.out.println("하노이 타워 게임입니다.");
 		System.out.println();
-		System.out.println(count +" 번째 시도입니다.");
-		System.out.println("오브젝트를 이동시키려는 타워를 입력하세요.");
-		move_a = userInput.nextInt();
-		System.out.println("오브젝트를 어떤 타워로 이동시킬까요?");
-		move_b = userInput.nextInt();
+		System.out.println(tryCnt +" 번째 시도입니다.");
+		System.out.println("오브젝트를 이동시키려는 타워를 입력하세요.(1)~(3)");
+		move_A = userInput.nextInt();
+		System.out.println("오브젝트를 어떤 타워로 이동시킬까요?(1)~(3)");
+		move_B = userInput.nextInt();
 		
-		arraySetting(move_a, move_b);
+		arrSet(move_A, move_B);
 		move(userChoice_A,userChoice_B);
-		count ++;
+		tryCnt ++;
 		win();
 		}
 		userInput.close();
@@ -59,10 +58,11 @@ public class _0107 {
 		//각 타워 A,B,C 를 사용자에게 보여줄 메서드 screen, show	메서드가 필요하겠다. 
 		//A의 오브젝트들이 C로 모두 옮겨졌을 때. 승리했다라는 조건을 담을 메서드가 필요하겠다.
 	}
-	
-	public static void arraySetting(int a, int b) {
-		// 유저의 입력을 타워의 배열값과 연결시키는 메서드		
-		// 일종의 temp 변수?	
+		
+	// 유저의 입력을 타워의 배열값과 연결시키는 메서드
+	// 일종의 temp 변수?
+	public static void arrSet(int a, int b) {
+			
 		switch (a) {
 		case 1:
 			userChoice_A = tower_A;
@@ -92,8 +92,9 @@ public class _0107 {
 		}
 	}
 	
+	//가장 작은 배열의 오브젝트의 값을 반환한다.
 	public static int bringTopObject(int top[]) {
-			//가장 작은 배열의 오브젝트의 값을 반환한다.
+			
 		int temp;
 		
 			temp = top[0];
@@ -105,8 +106,9 @@ public class _0107 {
 		return temp;
 	}
 	
+	//가장 작은 배열의 인덱스 값을 반환한다.
 	public static int bringLowIndex(int top[]) {
-		//가장 작은 배열의 인덱스 값을 반환한다.
+		
 		int temp;
 		int index = 0;
 			temp = top[0];
@@ -122,9 +124,9 @@ public class _0107 {
 	
 
 	
-	
+	//실질적인 크기 비교와, B로 A의 값을 대입, A의 값은 0으로 초기화처리
 	public static void move(int[] a, int[] b) {
-		//실질적인 크기 비교와, B로 A의 값을 대입, A의 값은 0으로 초기화처리
+		
 
 //		bringLowIndex(userChoice_A); // Tower_A[5] = return -> 5
 //		bringLowIndex(userChoice_B); // Tower_B[0] = return -> 0
@@ -146,9 +148,9 @@ public class _0107 {
 
 	}
 	
-	
+	//사용자에게 출력 할 화면
 	public static void screen() {
-			//사용자에게 출력 할 화면.
+			
 		for(int i=0; i<50; i++) {
 			System.out.println();
 		}
