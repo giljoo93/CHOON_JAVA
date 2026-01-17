@@ -1,0 +1,25 @@
+package dailyStudy;
+
+import java.util.Scanner;
+
+public class _0106_study {
+
+	int width;
+	int height;
+	
+	public int getArea() {
+		return width*height;
+	}
+	
+	public static void main(String[] args) {
+	
+		_0106_study rect = new _0106_study();
+		Scanner scanner = new Scanner(System.in);
+		System.out.print(">> ");
+		rect.width = scanner.nextInt();
+		rect.height = scanner.nextInt();
+		System.out.println("직사각형의 면적은 " + rect.getArea());
+		scanner.close();
+		
+	}
+}
