@@ -20,7 +20,7 @@ public class _0112_Hanoi2 {
 
 			System.out.println("하노이 타워 게임입니다.");
 			System.out.println();
-//		System.out.println(tryCnt +" 번째 시도입니다.");
+//			System.out.println(tryCnt +" 번째 시도입니다.");
 			System.out.println("오브젝트를 이동시키려는 타워를 입력하세요.(1)~(3)");
 			userChoice_A = userInput.nextInt();
 			System.out.println("오브젝트를 어떤 타워로 이동시킬까요?(1)~(3)");
