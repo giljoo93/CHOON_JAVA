@@ -16,8 +16,10 @@ public class Book {
 	LocalDate regDate; //작품 등록일	: 고객이 알아야 한다.		permission = 0[모두공개]
 	String Serialized; //연재중인지에 대한 정보 = 완결/연재중/휴재중  permission = 0[모두공개] 
 	
-	
-	
+	short viewCount;		//이 작품이 얼마나 많이 접근 되었는지	//admin 시점에서
+	short memberViewCount;	//회원들이 작품에 얼마나 많이 접근 하였는지	//permission 0
+	byte  reviewValue;		//평점이 몇점인지?		//permission 1 부터 가능 / 0은 get만 하게끔
+	short likeCount;		//회원들이 작품에 얼마나 많은 추천(좋아요)표시를 하였는지	//reviewValue동일
 	
 	
 	

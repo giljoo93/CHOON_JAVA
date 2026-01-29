@@ -1,8 +1,8 @@
 package dailyStudy._0129;
 
-public class MemberUI {
+public class MemberUI extends LibraryServices {
 
-	//	보여지는 것들
 	
+
 	
 }
