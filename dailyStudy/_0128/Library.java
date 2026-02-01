@@ -5,12 +5,13 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 
 public class Library {
 	static Scanner input = new Scanner(System.in);
-	Book[] bookList = new Book[100];
+	Book[] bookList= new Book[100];
 	Book trash;
 	String signStatus,mainStatus;
 
@@ -111,10 +112,15 @@ public class Library {
 					case 3: // 3.도서반납
 						break;
 					case 4: // 4.도서추가
+						
 						basic.readDB();
 						Tool.clearScreen();
 						basic.addBook();
 						basic.writeDB();
+						
+						Tool.extendBookSize(basic.bookList);
+						basic.readDB();
+						
 						break;
 					case 5: // 5.도서삭제
 						basic.readDB();
@@ -252,7 +258,7 @@ public class Library {
 
 //	도서관리 로직---------------------------------------------------------------------------------------	
 
-	public void addBook() {
+	public void addBook() throws IOException {
 		
 		System.out.println("도서 추가 페이지입니다.");
 		System.out.println("추가 할 도서의 도서명을 입력하세요.");
@@ -353,7 +359,9 @@ public class Library {
 		for (String Line = fr.readLine(); Line != null; Line = fr.readLine()) {
 
 			temp = Line.split("/");
-			tempDB = new Book(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6]);
+			
+			
+			tempDB = new Book(temp[0], temp[1], temp[2], LocalDate.parse(temp[3]), temp[4], temp[5], temp[6]);
 			bookList[idx] = tempDB;
 			idx++;
 		}
