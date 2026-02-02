@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-
+// Module + View + Control (MVC 패턴)
 public class Library {
 	static Scanner input = new Scanner(System.in);
 	Book[] bookList= new Book[100];
@@ -116,10 +116,12 @@ public class Library {
 						basic.readDB();
 						Tool.clearScreen();
 						basic.addBook();
-						basic.writeDB();
-						
+						basic.writeDB();						
 						Tool.extendBookSize(basic.bookList);
 						basic.readDB();
+
+						// 도서 저장을 안하면, 자료저장이 안되게끔
+						// 도서 저장 / 불러오기 기능을 만들기.
 						
 						break;
 					case 5: // 5.도서삭제
@@ -352,7 +354,7 @@ public class Library {
 		Book tempDB;
 		BufferedReader fr = new BufferedReader(new FileReader("lib_bookDB.txt"));
 
-		for (int i = 0; i < 100; i++) { // 배열 값 다 지우기
+		for (int i = 0; i < bookList.length; i++) { // 배열 값 다 지우기
 			bookList[i] = null;
 		}
 
