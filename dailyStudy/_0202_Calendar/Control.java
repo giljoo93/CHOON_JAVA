@@ -1,9 +1,12 @@
 package dailyStudy._0202_Calendar;
 
+import java.util.*;
 import java.time.LocalDate;
 
 public class Control {
     
+    static Scanner input = new Scanner(System.in);
+
 //  달력을 만드는 메서드
     public static void Loading(int[] datePositionInMonth, int[] year, int[] month, int[]days, int[] position) {
         View.pushScreen();
@@ -22,6 +25,51 @@ public class Control {
 				String.valueOf(today).substring(0, 4));
 		int holdMonth = Integer.parseInt(
 				String.valueOf(today).substring(5, 7));
+
+            System.out.println("오늘의 년도 : " + holdYear + " 오늘의 월자 : "+ holdMonth);
+
+        int tempYear;
+        int tempMonth;
+        for (int i = 0; i < year.length ; i++) {
+            tempYear = year[i];
+            tempMonth = month[i];
+            if(tempYear == holdYear && tempMonth == holdMonth) {
+             
+                System.out.println("오늘에 해당하는 달력을 찾았습니다.");
+                whereToday = i;
+                
+            }
+        }
+        int todayYear = year[whereToday];
+        int todayMonth = month[whereToday];
+        int todayDays = days[whereToday];
+        int todayPosition = position[whereToday];
+
+        Model.setMonth(datePositionInMonth, todayPosition, todayDays);
+        View.pushScreen();
+        View.calendarTop(todayYear, todayMonth);
+        View.dateStructure(false, datePositionInMonth);
+        View.calendarBottom();
+
+    }
+
+
+//  원하는 달력을 호출하는 메서드
+
+    public static void callBySelect (int[] datePositionInMonth, int[] year, int[] month, int[]days, int[] position) {
+
+
+        System.out.println("조회할 년도와 월을 이어서 입력해주세요.");
+        System.out.println("ex.1) 202601  ex.2)199309");
+        int today = input.nextInt();
+
+        
+
+        int whereToday =0;
+        int holdYear = Integer.parseInt(
+				String.valueOf(today).substring(0, 4));
+		int holdMonth = Integer.parseInt(
+				String.valueOf(today).substring(4, 6));
 		// int holdDay = Integer.parseInt(
 		// 		String.valueOf(today).substring(8, 10));
 
@@ -40,17 +88,16 @@ public class Control {
                 }
             }
         }
+
         int todayYear = year[whereToday];
         int todayMonth = month[whereToday];
         int todayDays = days[whereToday];
         int todayPosition = position[whereToday];
 
-        Model.setPositionInMonth(datePositionInMonth, todayYear, todayMonth, todayDays, todayPosition);
+        Model.setMonth(datePositionInMonth, todayPosition, todayDays);
         View.pushScreen();
         View.calendarTop(todayYear, todayMonth);
         View.dateStructure(false, datePositionInMonth);
         View.calendarBottom();
-
     }
-
 }
