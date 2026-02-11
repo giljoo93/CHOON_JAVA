@@ -23,21 +23,32 @@ public class View {
 	}
 
 
+//	메인메뉴 호출내용
+	public static void mainMenu() { 
+	System.out.println("탐색하실 년/월/일자 8자리를 입력하시거나");
+	System.out.println("메뉴번호를 입력하세요.");
+	System.out.println("1.이전년도");
+	System.out.println("2.다음년도");
+	System.out.println("3.이전월");
+	System.out.println("4.다음월");
+	System.out.println("0.종료");
+	System.out.print(">");
+	}
+	
 //	캘린더의 date 구조체
-	public static void dateStructure(boolean isHolliday, int[] monthOfDate) {
+	public static void dateStructure(boolean[] isHolliday, int[] monthOfDate, int today) {
     
 		int calPosition = 0;
 		for(int i = 0; i < 6; i++) {
 			for(int j = 0; j <7; j++) {
-				System.out.print((isHolliday == true     ? "H"  : " "));
+				System.out.print((isHolliday[calPosition] == true ? "H"  : " "));
 				System.out.print(			(monthOfDate[calPosition] == 0 ? "  " : 
 		 			 String.valueOf(monthOfDate[calPosition]).length() < 2 ? " " + monthOfDate[calPosition] 
 				 								    							  : monthOfDate[calPosition]));
-				System.out.print(" ");
+				System.out.print(today == monthOfDate[calPosition] ? "<" : " ");
 				calPosition++;
 			}
 			System.out.println();
 		}
-
 	}
 }

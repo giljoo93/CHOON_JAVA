@@ -1,41 +1,50 @@
 package dailyStudy._0202_Calendar;
 
+import java.io.IOException;
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)throws IOException {
 
-		int[] year = new int[2000];
-		int[] month = new int[2000];
-		int[] days = new int[2000];
-		int[] position = new int[2000];
-		int[] datePositionInMonth = new int[42];
+
+		Model user = new Model();
 		
+				Control.Loading(user.datePositionInMonth, 
+								user.year, 
+								user.month, 
+								user.days, 
+								user.position);
+
+				user.holidayReader();
+				
+			user.screen =
+			
+				Integer.parseInt(
+
+					Control.callByToday(user.datePositionInMonth, 
+										user.year, 
+										user.month, 
+										user.days, 
+										user.position,
+										user.holiday,
+										user.holidays)
+
+													);
 		
-		year[0] = 1960;
-		month[0] = 1;
-		days[0] = 31;
-		position[0] = 6;
-
-	
-		
-
-		Control.Loading(datePositionInMonth, year, month, days, position);
-		Control.callByToday(datePositionInMonth, year, month, days, position);
-
 		while(true) {
 			
-
-			Control.callBySelect(datePositionInMonth, year, month, days, position);
+			
+			user.screen = Control.mainChoice(user.datePositionInMonth, 
+											 user.year, 
+											 user.month, 
+											 user.days, 
+											 user.position, 
+											 user.screen,
+											 user.holiday,
+						    				 user.holidays);
+			
 		}
-		
-
-		
-	
-
-		
-		
-
-		
+				
 	}
 
 }
